@@ -66,3 +66,6 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+
+/bin/magento
+/app/etc/config.php
