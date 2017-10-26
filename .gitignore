@@ -69,3 +69,4 @@ atlassian*
 
 /bin/magento
 /app/etc/config.php
+!/vendor/magento
