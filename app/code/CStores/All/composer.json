@@ -1,0 +1,14 @@
+{
+  "name": "cstores/all",
+  "version": "0.0.1",
+  "description": "CStores main module ",
+  "type": "magento2-module",
+  "require": {
+    "php": ">=7.*.*",
+    "magento/framework": ">=100.*.*"
+  },
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {"CStores\\All\\": ""}
+  }
+}
