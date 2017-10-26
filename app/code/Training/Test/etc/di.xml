@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CreateStores Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@createstores.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * If you wish to customize it for your
+ * needs please refer to http://www.createstores.com for more information.
+ *
+ * @creator     Gusev Oleg, Magento certificated Developer Plus, magentoassistance@gmail.com
+ * @certificate http://www.magentocommerce.com/certification/directory/dev/973862/
+ *
+ * Created by
+ * User: oleg
+ * Date: 26.10.17 Time: 12:35
+ * @category    CreateStores
+ * @package     
+ * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Training\Test\Api\ProductRepositoryInterface" type="Magento\Catalog\Model\ProductRepositoryInterface" />
+    <type name="Training\Test\MagentoU\Test">
+        <arguments>
+            <argument name="justParameter" xsi:type="string">Just Hello World !</argument>
+            <argument name="data" xsi:type="array">
+                <item name="test-array-item" xsi:type="string">Test Array Item!!!</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="training_test_plugin_product" type="Training\Test\Plugin\Model\Catalog\ProductPlugin" />
+    </type>
+
+    <type name="Magento\Theme\Block\Html\Footer">
+        <plugin name="training_test_plugin_footer"  type="Training\Test\Plugin\Block\Theme\Html\FooterPlugin" />
+    </type>
+
+    <type name="Magento\Theme\Block\Html\Breadcrumbs">
+        <plugin name="training_test_plugin_breadcrumbs"  type="Training\Test\Plugin\Block\Theme\Html\BreadcrumbsPlugin" />
+    </type>
+
+
+
+    <preference for="Magento\Framework\App\FrontControllerInterface" type="Training\Test\Controller\Framework\App\FrontController" />
+
+    <type name="Magento\Framework\App\Router\NoRouteHandlerList">
+        <arguments>
+            <argument name="handlerClassesList" xsi:type="array">
+                <item name="default" xsi:type="array">
+                    <item name="class" xsi:type="string">Training\Test\Controller\NoRouteHandler</item>
+                    <item name="sortOrder" xsi:type="string">200</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+
+    <!--preference for="Magento\Catalog\Controller\Product\View" type="Training\Test\Controller\Catalog\Product\View" /-->
+    <!--type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="product-view-controller-plugin"
+                type="Training\Test\Controller\Product\View" sortOrder="10"/>
+    </type-->
+
+</config>
