@@ -59,7 +59,7 @@
 
     <preference for="Magento\Framework\App\FrontControllerInterface" type="Training\Test\Controller\Framework\App\FrontController" />
 
-    <type name="Magento\Framework\App\Router\NoRouteHandlerList">
+    <!--type name="Magento\Framework\App\Router\NoRouteHandlerList">
         <arguments>
             <argument name="handlerClassesList" xsi:type="array">
                 <item name="default" xsi:type="array">
@@ -68,7 +68,7 @@
                 </item>
             </argument>
         </arguments>
-    </type>
+    </type-->
 
 
     <!--preference for="Magento\Catalog\Controller\Product\View" type="Training\Test\Controller\Catalog\Product\View" /-->
@@ -78,6 +78,6 @@
     </type-->
 
     <!-- Unit Three. Rendering -->
-    <preference for="Magento\Framework\View\LayoutInterface" type="Training\Test\Framework\View\Layout" />
+    <!--preference for="Magento\Framework\View\LayoutInterface" type="Training\Test\Framework\View\Layout" /-->
 
 </config>

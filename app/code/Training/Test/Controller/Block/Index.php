@@ -22,36 +22,29 @@
  *
  * Created by
  * User: oleg
- * Date: 27.10.17 Time: 18:46
+ * Date: 27.10.17 Time: 19:43
  * @category    CreateStores
  * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace Training\Test\Framework\View;
+namespace Training\Test\Controller\Block;
 
+use Magento\Framework\App\Action\Action;
 
 /**
- * Class Layout
- * @package Training\Framework\View
+ * Class Index
+ * @package Training\Test\Controller\Block
  */
-class Layout extends \Magento\Framework\View\Layout
+class Index extends Action
 {
 	/**
-	 * Layout xml generation
-	 *
-	 * result: http://take.ms/IRAou
-	 *
-	 * @return $this
+	 * result: http://take.ms/5xfTZ
 	 */
-	public function generateXml()
+	public function execute()
 	{
-		parent::generateXml();
-
-		//$this->logger->info(var_export($this->getXmlString(), true));
-
-
-		return $this;
+		$block = $this->_view->getLayout()->createBlock('Training\Test\Block\Controller');
+		$this->getResponse()->appendBody($block->toHtml());
 	}
 }
