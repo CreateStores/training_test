@@ -62,15 +62,17 @@ class FrontController extends \Magento\Framework\App\FrontController
 	}
 
 	/**
+	 * TODO: logic commented
+	 *
 	 * @param RequestInterface $request
 	 *
 	 * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
 	 */
 	public function dispatch( RequestInterface $request )
 	{
-		foreach ($this->_routerList as $router) {
-			$this->_logger->info("--------\n\n\n ROUTER \n\n\n" . get_class($router));
-		}
+//		foreach ($this->_routerList as $router) {
+//			$this->_logger->info("--------\n\n\n ROUTER \n\n\n" . get_class($router));
+//		}
 
 		return parent::dispatch( $request );
 	}

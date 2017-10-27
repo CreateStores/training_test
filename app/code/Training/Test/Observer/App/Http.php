@@ -57,6 +57,7 @@ class Http implements ObserverInterface
 	}
 
 	/**
+	 * TODO: logic commented
 	 *
 	 * event: controller_front_send_response_before
 	 *
@@ -66,8 +67,8 @@ class Http implements ObserverInterface
 	 */
 	public function execute(Observer $observer)
 	{
-		$this->_logger->info("--------\n\n\n BODY \n\n\n"
-		                      . substr($observer->getEvent()->getResponse()->getBody(), 0 , 100));
+//		$this->_logger->info("--------\n\n\n BODY \n\n\n"
+//		                      . substr($observer->getEvent()->getResponse()->getBody(), 0 , 100));
 		return $this;
 	}
 }
