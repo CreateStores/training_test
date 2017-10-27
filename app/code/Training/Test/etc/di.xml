@@ -77,4 +77,7 @@
                 type="Training\Test\Controller\Product\View" sortOrder="10"/>
     </type-->
 
+    <!-- Unit Three. Rendering -->
+    <preference for="Magento\Framework\View\LayoutInterface" type="Training\Test\Framework\View\Layout" />
+
 </config>
