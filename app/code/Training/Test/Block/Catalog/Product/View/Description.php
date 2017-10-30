@@ -45,8 +45,8 @@ class Description extends \Magento\Catalog\Block\Product\View\Description
 	 */
 	protected function _beforeToHtml()
 	{
-		$_product = $this->getProduct();
-		$_product->setDescription('Test description from Training\Test\Block\Catalog\Product\View\Description');
+		//$_product = $this->getProduct();
+		//$_product->setDescription('Test description from Training\Test\Block\Catalog\Product\View\Description');
 
 		return parent::_beforeToHtml();
 	}
