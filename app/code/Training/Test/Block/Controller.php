@@ -22,29 +22,28 @@
  *
  * Created by
  * User: oleg
- * Date: 27.10.17 Time: 19:43
+ * Date: 30.10.17 Time: 17:54
  * @category    CreateStores
  * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace Training\Test\Controller\Block;
+namespace Training\Test\Block;
 
-use Magento\Framework\App\Action\Action;
+use Magento\Framework\View\Element\AbstractBlock;
 
 /**
- * Class Index
- * @package Training\Test\Controller\Block
+ * Class Controller
+ * @package Training\Test\Block\Controller
  */
-class Index extends Action
+class Controller extends AbstractBlock
 {
 	/**
-	 * result: http://take.ms/1iP4c
+	 * @return string
 	 */
-	public function execute()
+	protected function _toHtml()
 	{
-		$block = $this->_view->getLayout()->createBlock(\Training\Test\Block\Controller::class);
-		$this->getResponse()->appendBody($block->toHtml());
+		return '<b>Hello wold from Block!!</b>';
 	}
 }
