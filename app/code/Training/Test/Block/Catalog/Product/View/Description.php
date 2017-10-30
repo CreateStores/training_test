@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * CreateStores Inc.
  *
@@ -23,26 +22,32 @@
  *
  * Created by
  * User: oleg
- * Date: 26.10.17 Time: 17:16
+ * Date: 30.10.17 Time: 19:16
  * @category    CreateStores
- * @package     
+ * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+ */
 
-    <type name="Magento\Framework\App\RouterList">
-        <arguments>
-            <argument name="routerList" xsi:type="array">
-                <item name="training_test_router" xsi:type="array">
-                    <item name="class" xsi:type="string">Training\Test\Controller\Router</item>
-                    <item name="disable" xsi:type="boolean">false</item>
-                    <item name="sortOrder" xsi:type="string">70</item>
-                </item>
-            </argument>
-        </arguments>
-    </type>
+namespace Training\Test\Block\Catalog\Product\View;
 
-    <preference for="Magento\Catalog\Block\Product\View\Description" type="Training\Test\Block\Catalog\Product\View\Description" />
+/**
+ *
+ * plugin Description
+ * @package Training\Test\Block\Catalog\Product\View
+ */
+class Description extends \Magento\Catalog\Block\Product\View\Description
+{
+	/**
+	 * result http://take.ms/5GR56
+	 *
+	 * @return \Magento\Catalog\Block\Product\View\Description
+	 */
+	protected function _beforeToHtml()
+	{
+		$_product = $this->getProduct();
+		$_product->setDescription('Test description from Training\Test\Block\Catalog\Product\View\Description');
 
-</config>
+		return parent::_beforeToHtml();
+	}
+}
