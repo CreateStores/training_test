@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * CreateStores Inc.
  *
@@ -23,16 +22,52 @@
  *
  * Created by
  * User: oleg
- * Date: 30.10.17 Time: 20:51
+ * Date: 30.10.17 Time: 21:50
  * @category    CreateStores
- * @package     
+ * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */ -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceContainer name="content.top">
-            <!--block class="Magento\Framework\View\Element\Template" name="training_render_top" template="Training_Render::content/top.phtml" /-->
-        </referenceContainer>
-    </body>
-</page>
+ */
+
+namespace Training\Render\Controller\Layout;
+
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+/**
+ * Class Onepage
+ * @package Training\Render\Controller\Layout
+ */
+class Onepage extends Action
+{
+	/**
+	 * @var PageFactory
+	 */
+	protected $_resultPageFactory;
+
+	/**
+	 * Onepage constructor.
+	 *
+	 * @param Context $context
+	 * @param PageFactory $pageFactory
+	 */
+	public function __construct(
+		Context $context,
+		PageFactory $pageFactory
+	) {
+		$this->_resultPageFactory = $pageFactory;
+		parent::__construct( $context );
+	}
+
+	/**
+	 * result: http://take.ms/9yBqV
+	 *
+	 * @return \Magento\Framework\View\Result\Page
+	 */
+	public function execute()
+	{
+		$page = $this->_resultPageFactory->create();
+		return $page;
+	}
+}
