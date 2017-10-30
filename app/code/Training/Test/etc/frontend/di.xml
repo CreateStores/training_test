@@ -43,6 +43,6 @@
         </arguments>
     </type>
 
-    <!--preference for="Magento\Catalog\Block\Product\View\Description" type="Training\Test\Block\Catalog\Product\View\Description" /-->
+    <preference for="Magento\Catalog\Block\Product\View\Description" type="Training\Test\Block\Catalog\Product\View\Description" />
 
 </config>
