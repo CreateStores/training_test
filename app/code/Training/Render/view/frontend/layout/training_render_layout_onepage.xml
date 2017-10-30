@@ -35,6 +35,11 @@
             <action method="setPageTitle">
                 <argument translate="true" name="page_title" xsi:type="string">Training render Layout Onepage</argument>
             </action>
+            <block class="Magento\Framework\View\Element\Template" name="training_render_top" template="Training_Render::content/top.phtml">
+                <arguments>
+                    <argument name="background_color" xsi:type="string">lightskyblue</argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>
