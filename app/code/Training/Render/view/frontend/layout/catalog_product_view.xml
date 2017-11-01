@@ -23,16 +23,24 @@
  *
  * Created by
  * User: oleg
- * Date: 30.10.17 Time: 20:48
+ * Date: 30.10.17 Time: 22:24
  * @category    CreateStores
  * @package     
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Training_Render" setup_version="0.0.1">
-        <sequence>
-            <module name="Magento_Catalog" />
-        </sequence>
-    </module>
-</config>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceBlock name="product.info.sku">
+            <!-- result: http://take.ms/czb9L -->
+            <!--arguments>
+                <argument name="template" xsi:type="string">Training_Render::product/view/attribute.phtml</argument>
+            </arguments-->
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Training_Render::product/view/attribute.phtml</argument>
+            </action>
+        </referenceBlock>
+
+    </body>
+</page>

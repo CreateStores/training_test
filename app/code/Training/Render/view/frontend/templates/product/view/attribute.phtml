@@ -1,0 +1,66 @@
+<?php
+/**
+ * CreateStores Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@createstores.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * If you wish to customize it for your
+ * needs please refer to http://www.createstores.com for more information.
+ *
+ * @creator     Gusev Oleg, Magento certificated Developer Plus, magentoassistance@gmail.com
+ * @certificate http://www.magentocommerce.com/certification/directory/dev/973862/
+ *
+ * Created by
+ * User: oleg
+ * Date: 01.11.17 Time: 15:26
+ * @category    CreateStores
+ * @package     
+ * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+// @codingStandardsIgnoreFile
+
+/**
+ * copied from vendor/magento/module-catalog/view/frontend/templates/product/view/attribute.phtml
+ *
+ * Product view template
+ *
+ * @see \Magento\Catalog\Block\Product\View\Description
+ */
+?>
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$_call = $block->getAtCall();
+$_code = $block->getAtCode();
+$_className = $block->getCssClass();
+$_attributeLabel = $block->getAtLabel();
+$_attributeType = $block->getAtType();
+$_attributeAddAttribute = $block->getAddAttribute();
+
+if ($_attributeLabel && $_attributeLabel == 'default') {
+	$_attributeLabel = $_product->getResource()->getAttribute($_code)->getStoreLabel();
+}
+if ($_attributeType && $_attributeType == 'text') {
+	$_attributeValue = ($_helper->productAttribute($_product, $_product->$_call(), $_code)) ? $_product->getAttributeText($_code) : '';
+} else {
+	$_attributeValue = $_helper->productAttribute($_product, $_product->$_call(), $_code);
+}
+?>
+
+<?php if ($_attributeValue): ?>
+    <div class="product attribute <?= /* @escapeNotVerified */ $_className ?>" style="background-color: orange;">
+		<?php if ($_attributeLabel != 'none'): ?><strong class="type"><?= /* @escapeNotVerified */ $_attributeLabel ?></strong><?php endif; ?>
+        <div class="value" <?= /* @escapeNotVerified */ $_attributeAddAttribute ?>><?= /* @escapeNotVerified */ $_attributeValue ?></div>
+    </div>
+<?php endif; ?>
