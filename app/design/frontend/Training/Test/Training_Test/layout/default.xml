@@ -23,7 +23,7 @@
  *
  * Created by
  * User: oleg
- * Date: 30.10.17 Time: 20:51
+ * Date: 01.11.17 Time: 19:27
  * @category    CreateStores
  * @package     
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
@@ -31,8 +31,6 @@
  */ -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="content.top">
-            <!--block class="Magento\Framework\View\Element\Template" name="training_render_top" template="Training_Render::content/top.phtml" /-->
-        </referenceContainer>
+        <referenceBlock name="top.search" remove="true" />
     </body>
 </page>
