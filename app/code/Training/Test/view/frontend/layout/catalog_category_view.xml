@@ -23,16 +23,15 @@
  *
  * Created by
  * User: oleg
- * Date: 08.10.17 Time: 23:25
+ * Date: 01.11.17 Time: 16:04
  * @category    CreateStores
  * @package     
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Training_Test" setup_version="0.0.1">
-        <sequence>
-            <module name="Training_Render" />
-        </sequence>
-    </module>
-</config>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- result: http://take.ms/oqLkv -->
+        <move element="training_render_sidebar_main" destination="page.bottom.container" as="training_test_move_from_left_to_bottom" after="-" />
+    </body>
+</page>
