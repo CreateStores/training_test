@@ -34,12 +34,9 @@
 
         <referenceBlock name="product.info.sku">
             <!-- result: http://take.ms/czb9L -->
-            <!--arguments>
+            <!--action method="setTemplate">
                 <argument name="template" xsi:type="string">Training_Render::product/view/attribute.phtml</argument>
-            </arguments-->
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">Training_Render::product/view/attribute.phtml</argument>
-            </action>
+            </action-->
         </referenceBlock>
 
     </body>

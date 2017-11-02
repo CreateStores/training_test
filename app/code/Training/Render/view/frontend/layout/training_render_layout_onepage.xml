@@ -36,7 +36,7 @@
             <block class="Magento\Framework\View\Element\Template" name="training_render_top_links" template="Training_Render::links.phtml" />
         </referenceBlock>
         <!-- result: http://take.ms/XKpyV -->
-        <referenceContainer name="training_render_top" remove="true" />
+        <!--referenceContainer name="training_render_top" remove="true" /-->
         <referenceBlock name="page.main.title">
             <action method="setPageTitle">
                 <argument translate="true" name="page_title" xsi:type="string">Training render Layout Onepage</argument>

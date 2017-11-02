@@ -34,6 +34,8 @@ namespace Training\Render\Controller\Layout;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Store\Model\ResourceModel\Store\Collection;
+use Magento\Catalog\Model\ResourceModel\Category\Collection as CategoryCollection;
 
 /**
  * Class Onepage
@@ -47,26 +49,57 @@ class Onepage extends Action
 	protected $_resultPageFactory;
 
 	/**
+	 * @var Collection|Store
+	 */
+	protected $_storeCollection;
+
+	protected $_categoryCollection;
+
+	/**
 	 * Onepage constructor.
 	 *
 	 * @param Context $context
 	 * @param PageFactory $pageFactory
+	 * @param Collection $storeCollection
+	 * @param CategoryCollection $categoryCollection
 	 */
 	public function __construct(
 		Context $context,
-		PageFactory $pageFactory
+		PageFactory $pageFactory,
+		Collection $storeCollection,
+		CategoryCollection $categoryCollection
 	) {
 		$this->_resultPageFactory = $pageFactory;
+		$this->_storeCollection   = $storeCollection;
+		$this->_categoryCollection = $categoryCollection;
+
 		parent::__construct( $context );
 	}
 
 	/**
-	 * result: http://take.ms/9yBqV
+	 * result: http://take.ms/T4coK
 	 *
 	 * @return \Magento\Framework\View\Result\Page
 	 */
 	public function execute()
 	{
+		/** @var \Magento\Store\Model\Store $store */
+		foreach($this->_storeCollection->getItems() as $store) {
+			$rootId = $store->getRootCategoryId();
+			$this->_categoryCollection
+				->addFieldToSelect('name')
+				->addFieldToFilter(
+				'parent_id', $rootId
+			);
+			$categories = $this->_categoryCollection->getItems();
+			echo '<pre>';
+			foreach ($categories as $category) {
+				echo print_r($category->getData());
+			}
+
+		}
+		exit('aaaaa');
+
 		$page = $this->_resultPageFactory->create();
 		return $page;
 	}
