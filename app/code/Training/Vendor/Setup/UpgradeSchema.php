@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * CreateStores Inc.
  *
@@ -23,13 +22,47 @@
  *
  * Created by
  * User: oleg
- * Date: 03.11.17 Time: 17:30
+ * Date: 03.11.17 Time: 18:35
  * @category    CreateStores
- * @package     
+ * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Training_Vendor" setup_version="0.0.2">
-    </module>
-</config>
+ */
+
+namespace Training\Vendor\Setup;
+
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\Setup\UpgradeSchemaInterface;
+
+/**
+ * Class UpgradeSchema
+ * @package Training\Vendor\Setup
+ */
+class UpgradeSchema implements UpgradeSchemaInterface
+{
+	/**
+	 * result: http://take.ms/L6AW9
+	 *
+	 * @param SchemaSetupInterface $setup
+	 * @param ModuleContextInterface $context
+	 */
+	public function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context )
+	{
+		$setup->startSetup();
+
+		$tableName = 'training_vendor_entity';
+		if (version_compare($context->getVersion(), '0.0.2', '<')) {
+			$setup->getConnection()->addColumn(
+				$setup->getTable($tableName),
+				'value',
+				[
+					'type' => \Magento\Framework\DB\Ddl\Table::TYPE_BLOB,
+					'comment' => 'Value of key'
+				]
+			);
+		}
+
+		$setup->endSetup();
+	}
+}
