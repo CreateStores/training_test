@@ -32,15 +32,15 @@
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!-- result: http://take.ms/aKZhV -->
-        <referenceBlock name="header.links">
+        <!--referenceBlock name="header.links">
             <block class="Magento\Framework\View\Element\Template" name="training_render_top_links" template="Training_Render::links.phtml" />
-        </referenceBlock>
+        </referenceBlock-->
         <!-- result: http://take.ms/XKpyV -->
         <!--referenceContainer name="training_render_top" remove="true" /-->
-        <referenceBlock name="page.main.title">
+        <!--referenceBlock name="page.main.title">
             <action method="setPageTitle">
                 <argument translate="true" name="page_title" xsi:type="string">Training render Layout Onepage</argument>
             </action>
-        </referenceBlock>
+        </referenceBlock-->
     </body>
 </page>

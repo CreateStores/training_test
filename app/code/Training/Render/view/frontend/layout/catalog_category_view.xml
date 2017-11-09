@@ -33,7 +33,7 @@
     <body>
         <referenceContainer name="sidebar.main">
             <!-- result: http://take.ms/hkYEa-->
-            <block class="Magento\Framework\View\Element\Template" name="training_render_sidebar_main" template="Training_Render::catalog/category/sidebar/main.phtml" />
+            <!--block class="Magento\Framework\View\Element\Template" name="training_render_sidebar_main" template="Training_Render::catalog/category/sidebar/main.phtml" /-->
         </referenceContainer>
     </body>
 </page>

@@ -32,6 +32,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!-- result: http://take.ms/oqLkv -->
-        <move element="training_render_sidebar_main" destination="page.bottom.container" as="training_test_move_from_left_to_bottom" after="-" />
+        <!--move element="training_render_sidebar_main" destination="page.bottom.container" as="training_test_move_from_left_to_bottom" after="-" /-->
     </body>
 </page>
