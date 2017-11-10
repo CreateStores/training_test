@@ -34,7 +34,7 @@
 
         <referenceContainer name="content">
 
-            <block class="Magento\Framework\View\Element\Template" name="training.test.more.information.jds" template="Training_Test::catalog/product/view/information/js.phtml" />
+            <!--block class="Magento\Framework\View\Element\Template" name="training.test.more.information.jds" template="Training_Test::catalog/product/view/information/js.phtml" /-->
 
         </referenceContainer>
 
