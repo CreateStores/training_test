@@ -153,14 +153,14 @@ class UpgradeData implements UpgradeDataInterface
 			);
 		}
 
-		if (version_compare($context->getVersion(), '0.1.0') < 0) {
+		if (version_compare($context->getVersion(), '0.0.4') < 0) {
 
 			$eavSetup->addAttribute(
 				\Magento\Catalog\Model\Product::ENTITY,
 				'flavor_select',
 				[
 					'type' => 'int',
-					'label' => 'Flavor Attribute Select',
+					'label' => 'Flavor Attribute Select 1',
 					'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
 					'visible' => true,
 					'required' => false,
