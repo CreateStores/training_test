@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * CreateStores Inc.
  *
@@ -23,13 +22,35 @@
  *
  * Created by
  * User: oleg
- * Date: 10.11.17 Time: 17:20
+ * Date: 14.11.17 Time: 19:48
  * @category    CreateStores
- * @package     
+ * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Training_Orm" setup_version="0.0.3">
-    </module>
-</config>
+ */
+
+namespace Training\Orm\Model\Eav\Entity\Attribute\Frontend;
+
+
+
+class ArrayFront extends \Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend
+{
+	/**
+	 * result: http://take.ms/pjkYx
+	 *
+	 * @param \Magento\Framework\DataObject $object
+	 *
+	 * @return bool|mixed|string
+	 */
+	public function getValue( \Magento\Framework\DataObject $object )
+	{
+		$value = $object->getData($this->getAttribute()->getAttributeCode());
+
+		$value = $this->getOption($value);
+		if (is_array($value)) {
+			$value = implode(", <br />\n", $value);
+		}
+
+		return $value;
+	}
+}

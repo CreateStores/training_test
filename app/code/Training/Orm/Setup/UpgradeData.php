@@ -67,9 +67,10 @@ class UpgradeData implements UpgradeDataInterface
 	 */
 	public function upgrade( ModuleDataSetupInterface $setup, ModuleContextInterface $context )
 	{
+		/** @var \Magento\Eav\Setup\EavSetup $eavSetup */
+		$eavSetup = $this->_eavSetupFactory->create([ 'setup' => $setup]);
+
 		if (version_compare($context->getVersion(), '0.0.2') < 0) {
-			/** @var \Magento\Eav\Setup\EavSetup $eavSetup */
-			$eavSetup = $this->_eavSetupFactory->create([ 'setup' => $setup]);
 
 			$eavSetup->addAttribute(
 				\Magento\Catalog\Model\Product::ENTITY,
@@ -91,6 +92,48 @@ class UpgradeData implements UpgradeDataInterface
 					'frontend' => '',
 					'input' => 'multiselect',
 					'backend' => \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class,
+					'group' => 'General',
+					'option' => [
+						'value' => [
+							'option_1' => ['Option 1'],
+							'option_2' => ['Option 2'],
+							'option_3' => ['Option 3'],
+							'option_4' => ['Option 4 "!@#$%^&*']
+						],
+						'order' => [
+							'option_1' => 1,
+							'option_2' => 2,
+							'option_3' => 3,
+							'option_4' => 4,
+						],
+					],
+				]
+			);
+		}
+
+		if (version_compare($context->getVersion(), '0.0.3') < 0) {
+
+			$eavSetup->addAttribute(
+				\Magento\Catalog\Model\Product::ENTITY,
+				'flavor_multiselect',
+				[
+					'type' => 'varchar',
+					'label' => 'Flavor Attribute MultiSelect',
+					'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+					'visible' => true,
+					'required' => false,
+					'user_defined' => true,
+					'searchable' => false,
+					'filterable' => false,
+					'comparable' => false,
+					'visible_on_front' => true,
+					'used_in_product_listing' => false,
+					'unique' => false,
+					'apply_to' => '',
+					'frontend' => '',
+					'input' => 'multiselect',
+					'backend' => \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class,
+					'frontend' => \Training\Orm\Model\Eav\Entity\Attribute\Frontend\ArrayFront::class,
 					'group' => 'General',
 					'option' => [
 						'value' => [
