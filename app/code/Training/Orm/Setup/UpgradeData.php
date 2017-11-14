@@ -153,6 +153,33 @@ class UpgradeData implements UpgradeDataInterface
 			);
 		}
 
+		if (version_compare($context->getVersion(), '0.1.0') < 0) {
+
+			$eavSetup->addAttribute(
+				\Magento\Catalog\Model\Product::ENTITY,
+				'flavor_select',
+				[
+					'type' => 'int',
+					'label' => 'Flavor Attribute Select',
+					'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+					'visible' => true,
+					'required' => false,
+					'user_defined' => true,
+					'searchable' => false,
+					'filterable' => false,
+					'comparable' => false,
+					'visible_on_front' => true,
+					'used_in_product_listing' => false,
+					'unique' => false,
+					'apply_to' => '',
+					'frontend' => '',
+					'input' => 'select',
+					'source' => \Training\Orm\Model\Eav\Entity\Attribute\Source\Select::class,
+					'group' => 'General'
+				]
+			);
+		}
+
 		return $this;
 	}
 }

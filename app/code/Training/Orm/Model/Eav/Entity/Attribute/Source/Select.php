@@ -22,36 +22,37 @@
  *
  * Created by
  * User: oleg
- * Date: 14.11.17 Time: 19:48
+ * Date: 14.11.17 Time: 21:32
  * @category    CreateStores
  * @package
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace Training\Orm\Model\Eav\Entity\Attribute\Frontend;
+namespace Training\Orm\Model\Eav\Entity\Attribute\Source;
 
+use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 
-
-class ArrayFront extends \Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend
+/**
+ * Class Select
+ * @package Training\Orm\Model\Eav\Entity\Attribute\Source
+ */
+class Select extends AbstractSource
 {
 	/**
-	 * result: http://take.ms/pjkYx
-	 * result by book: http://take.ms/iFjeU
+	 * result: http://take.ms/8fCQx
 	 *
-	 * @param \Magento\Framework\DataObject $object
-	 *
-	 * @return bool|mixed|string
+	 * @return array|null
 	 */
-	public function getValue( \Magento\Framework\DataObject $object )
+	public function getAllOptions()
 	{
-		$value = $object->getData($this->getAttribute()->getAttributeCode());
+		if ($this->_options === null) {
 
-		$value = $this->getOption($value);
-		if (is_array($value)) {
-			$value = implode(", <br />\n", $value);
+			for ($i = 0; $i < 11; $i++) {
+				$this->_options[] = ['label' => __('#' . $i), 'value' => $i];
+			}
+
 		}
-
-		return $value;
+		return $this->_options;
 	}
 }
