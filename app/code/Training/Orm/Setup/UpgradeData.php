@@ -180,6 +180,46 @@ class UpgradeData implements UpgradeDataInterface
 			);
 		}
 
+		if (version_compare($context->getVersion(), '0.0.5') < 0) {
+
+			$eavSetup->addAttribute(
+				\Magento\Catalog\Model\Product::ENTITY,
+				'material_multiselect',
+				[
+					'type' => 'varchar',
+					'label' => 'Material MultiSelect',
+					'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+					'visible' => true,
+					'required' => false,
+					'user_defined' => true,
+					'searchable' => false,
+					'filterable' => false,
+					'comparable' => false,
+					'visible_on_front' => false,
+					'used_in_product_listing' => true,
+					'unique' => false,
+					'apply_to' => '',
+					'frontend' => '',
+					'input' => 'multiselect',
+					'backend' => \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class,
+					'group' => 'General',
+					'attribute_set' =>  'Default', // does not work, cuz add to all sets!! need looking for other method
+					'option' => [
+						'value' => [
+							'option_1' => ['Plastic'],
+							'option_2' => ['Steel'],
+							'option_3' => ['Glass']
+						],
+						'order' => [
+							'option_1' => 1,
+							'option_2' => 2,
+							'option_3' => 3,
+						],
+					],
+				]
+			);
+		}
+
 		return $this;
 	}
 }

@@ -23,13 +23,18 @@
  *
  * Created by
  * User: oleg
- * Date: 10.11.17 Time: 17:20
+ * Date: 17.11.17 Time: 23:20
  * @category    CreateStores
  * @package     
  * @copyright   Copyright (c) 2017 CreateStores Inc. (http://www.createstores.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Training_Orm" setup_version="0.0.5">
-    </module>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+
+    <router id="standard">
+        <route id="training_orm" frontName="training_orm">
+            <module name="Training_Orm"/>
+        </route>
+    </router>
+
 </config>
