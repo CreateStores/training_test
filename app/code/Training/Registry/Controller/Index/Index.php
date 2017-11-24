@@ -32,13 +32,10 @@
 namespace Training\Registry\Controller\Index;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
-
 use Magento\Catalog\Model\Product\Type;
 use Magento\Framework\Api\FilterBuilder;
-use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SortOrder;
-use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 
